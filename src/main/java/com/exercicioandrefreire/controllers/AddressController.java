@@ -42,7 +42,7 @@ public class AddressController {
 		log.info("Starting save address");
 		
 		if(!Util.isNumber(number)){
-			return Util.getResponseInvalid("Invalid Number");
+			return Util.getResponseInvalid("Invalid number");
 		}
 		if(!Util.isZipcode(zipcode)){
 			return Util.getResponseInvalid("Invalid zipcode");
@@ -70,6 +70,9 @@ public class AddressController {
 		log.info("Starting update address");
 		if(!Util.isNumber(id)){
 			return Util.getResponseInvalid("Invalid id");
+		}
+		if(!Util.isNumber(number)){
+			return Util.getResponseInvalid("Invalid number");			
 		}
 		int idAddress = Integer.parseInt(id);
 		Address address = addressService.getAddressById(idAddress);
