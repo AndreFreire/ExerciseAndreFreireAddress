@@ -1,8 +1,8 @@
 # Exercicio de consulta de cep e crud de endereço.
 ## Ambiente
-java version "1.8.0_121"
-Apache Maven 3.3.9
-MySql Ver 14.14 Distrib 5.5.54
+java version "1.8.0_121" <br />  
+Apache Maven 3.3.9 <br />  
+MySql Ver 14.14 Distrib 5.5.54 <br />  
 
 ## Banco de dados
 MySql 
