@@ -59,7 +59,7 @@ public class AddressController {
 		return Util.getResponseOk("Address created successfully", address.getId());
 	}
 	
-	@RequestMapping(value = "/update/", method = RequestMethod.POST)
+	@RequestMapping(value = "/update/", method = RequestMethod.PUT)
 	public ResponseEntity<String> updateAddress(@RequestParam String id, 
 												@RequestParam String zipcode,
 												@RequestParam String number,
@@ -89,7 +89,7 @@ public class AddressController {
 		return Util.getResponseOk("Address update successfully", address.getId());
 	}
 
-	@RequestMapping(value = "/delete/{id}/", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}/", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteAddress(@PathVariable("id") String id ){
 		log.info("Starting delete address");
 		if(!Util.isNumber(id)){

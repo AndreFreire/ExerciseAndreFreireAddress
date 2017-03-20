@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -52,8 +55,14 @@ public class AddressControllTest {
 	@Test
 	public void deleteAddresTest() {
 		int idSavedAddress = saveAddressTest();
-		String body = this.restTemplate.getForObject(String.format(
-				"/address/delete/%s/", idSavedAddress), String.class);
+		
+		HttpEntity<String> httpEntity = new HttpEntity<String>(String.valueOf(idSavedAddress));
+		
+		ResponseEntity<String> responseEntity = this.restTemplate.exchange(String.format(
+				"/address/delete/%s/", idSavedAddress), HttpMethod.DELETE, httpEntity, String.class);
+		
+		String body = responseEntity.getBody();
+	
 		JSONObject jsonBody;
 		try {
 			jsonBody = new JSONObject(body);
@@ -94,7 +103,7 @@ public class AddressControllTest {
 		map.add("zipcode", "02256080");
 		map.add("number", "789");
 				
-		this.restTemplate.postForObject("/address/update/", map, String.class);
+		this.restTemplate.put("/address/update/", map, String.class);
 		
 		Address address = addressService.getAddressById(idSavedAddress);
 		assertThat(address.getNumber().equals("789"));
