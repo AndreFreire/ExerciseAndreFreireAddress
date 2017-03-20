@@ -31,7 +31,7 @@ Consulta de cep feita no servico gratuito `https://viacep.com.br/`
 #### Remoção de endereço(DELETE):
   `http://localhost:8080/address/delete/<<idAddress>>/`
 
-#### Alteração de endereço(PUT):
+#### Alteração de endereço(POST):
    `http://localhost:8080/address/update/<<idAddress>>/` <br />
     body: `id: << ID >>` <br />
 ⋅⋅⋅⋅⋅⋅`zipcode:<< CEP >>` <br />
