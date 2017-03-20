@@ -1,44 +1,44 @@
-## Exercicio de consulta de cep e crud de endereço.
-# Ambiente
+# Exercicio de consulta de cep e crud de endereço.
+## Ambiente
 java version "1.8.0_121"
 Apache Maven 3.3.9
 MySql Ver 14.14 Distrib 5.5.54
 
-# Banco de dados
+## Banco de dados
 MySql 
 Necessário criar um banco chamado `springbootdb`
   `create database springbootdb;`
 Configurado para usuário `root` e senha vazia. (Arquivo de configuração `src/main/resources/application.properties`)
 
 
-# Consulta de cep
+## Consulta de cep
 Consulta de cep feita no servico gratuito `https://viacep.com.br/`
 
-# Endpoints
+## Endpoints
 
-Inserção de endereço(POST):
+#### Inserção de endereço(POST):
    `http://localhost:8080/address/save/`
     body: zipcode:<< CEP >>
           number: << number >>
           complement:<< complement >>  (opcional)
           
-Consulta de cep(GET):
+#### Consulta de cep(GET):
   `http://localhost:8080/cep/<<CEP>>/`
 
-Consulta de endereço(GET):
+#### Consulta de endereço(GET):
   `http://localhost:8080/address/get/<<idAddress>>/`
  
-Remoção de endereço(DELETE):
+#### Remoção de endereço(DELETE):
   `http://localhost:8080/address/delete/<<idAddress>>/`
 
-Alteração de endereço(PUT):
+#### Alteração de endereço(PUT):
    `http://localhost:8080/address/update/<<idAddress>>/`
     body: id: << ID >>
           zipcode:<< CEP >>
           number: << number >>
           complement:<< complement >>  (opcional)
           
-# Testes
+## Testes
 `src/test/java/com/exercicioandrefreire/`
 
 Att.
