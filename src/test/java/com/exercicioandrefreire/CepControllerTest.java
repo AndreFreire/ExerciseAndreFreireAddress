@@ -30,7 +30,7 @@ public class CepControllerTest {
 			assertThat(jsonBody.get("district")).isEqualTo("Vila Constança");
 			assertThat(jsonBody.get("state")).isEqualTo("SP");
 		} catch (JSONException e) {
-			assertThat(false);			
+			assertThat(true).isEqualTo(false);			
 		}
 	}
 	@Test
@@ -41,7 +41,7 @@ public class CepControllerTest {
 			jsonBody = new JSONObject(body);
 			assertThat(jsonBody.get("message")).isEqualTo("Invalid zipcode");
 		} catch (JSONException e) {
-			assertThat(false);			
+			assertThat(true).isEqualTo(false);			
 		}
 	}
 

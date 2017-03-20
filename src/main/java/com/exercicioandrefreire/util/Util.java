@@ -24,6 +24,17 @@ public class Util {
 		}
 		return new ResponseEntity<String>(response.toString(), HttpStatus.BAD_REQUEST);
 	}
+	public static ResponseEntity<String> getMethodNotAllowed(String message){
+		log.info(message);
+		JSONObject response = null;
+		try {
+			response = new JSONObject();
+			response.put("message", message);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<String>(response.toString(), HttpStatus.METHOD_NOT_ALLOWED);
+	}
 
 	public static ResponseEntity<String> getResponseNotFound(String message){
 		log.info(message);

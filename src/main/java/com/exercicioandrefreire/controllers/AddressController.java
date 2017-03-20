@@ -59,11 +59,13 @@ public class AddressController {
 		return Util.getResponseOk("Address created successfully", address.getId());
 	}
 	
-	@RequestMapping(value = "/update/", method = RequestMethod.PUT)
-	public ResponseEntity<String> updateAddress(@RequestParam String id, 
-												@RequestParam String zipcode,
-												@RequestParam String number,
-												@RequestParam(value = "complement", required = false) String complement){
+	@RequestMapping(value = "/update/", method = RequestMethod.POST)
+	public ResponseEntity<String> updateAddress(
+			@RequestParam("id") String id,
+			@RequestParam("zipcode") String zipcode,
+			@RequestParam("number") String number,
+			@RequestParam(value = "complement", required = false) String complement
+			){
 
 		log.info("Starting update address");
 		if(!Util.isNumber(id)){

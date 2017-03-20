@@ -26,7 +26,7 @@ public class ErrorsControllerTest {
 			jsonBody = new JSONObject(body);
 			assertThat(jsonBody.get("message")).isEqualTo("Page not found");
 		} catch (JSONException e) {
-			assertThat(false);			
+			assertThat(true).isEqualTo(false);			
 		}
 	}
 }

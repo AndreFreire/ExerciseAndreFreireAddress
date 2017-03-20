@@ -23,7 +23,9 @@ public class ErrorsController implements ErrorController{
 		case 404:
 			return Util.getResponseNotFound("Page not found");
 		case 400:
-			return Util.getResponseInvalid("Bad request");			
+			return Util.getResponseInvalid("Bad request");
+		case 405:
+			return Util.getMethodNotAllowed("Method not allowed");
 		default:
 			return Util.getResponseInternalError();
 		}

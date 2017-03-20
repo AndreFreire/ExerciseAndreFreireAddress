@@ -47,7 +47,7 @@ public class AddressControllTest {
 			assertThat(jsonBody.get("district")).isEqualTo("Vila Constança");
 			assertThat(jsonBody.get("state")).isEqualTo("SP");
 		} catch (JSONException e) {
-			assertThat(false);			
+			assertThat(true).isEqualTo(false);			
 		}
 		this.addressService.deleteAddress(idSavedAddress);
 	}
@@ -68,10 +68,10 @@ public class AddressControllTest {
 			jsonBody = new JSONObject(body);
 			assertThat(jsonBody.get("message")).isEqualTo("Address deleted successfully");
 		} catch (JSONException e) {
-			assertThat(false);			
+			assertThat(true).isEqualTo(false);			
 		}
 		Address deletedAddress = this.addressService.getAddressById(idSavedAddress);
-		assertThat(deletedAddress == null);
+		assertThat(deletedAddress).isEqualTo(null);
 	}
 	@Test
 	public void saveAddresTest() {
@@ -86,12 +86,13 @@ public class AddressControllTest {
 			jsonBody = new JSONObject(body);
 			idSavedAddress = jsonBody.getInt("id");
 		} catch (JSONException e) {
-			assertThat(false);			
+			assertThat(true).isEqualTo(false);			
 		}
 		
 		Address address = addressService.getAddressById(idSavedAddress);
-		assertThat(address.getNumber().equals("789"));
-		assertThat(address.getZipcode().equals("02256-000"));
+
+		assertThat(address.getNumber()).isEqualTo("789");
+		assertThat(address.getZipcode()).isEqualTo("02256-080");
 		
 		this.addressService.deleteAddress(idSavedAddress);		
 	}
@@ -100,14 +101,15 @@ public class AddressControllTest {
 	public void updateAddresTest() {
 		int idSavedAddress = saveAddressTest();
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-		map.add("zipcode", "02256080");
+		map.add("zipcode", "02256000");
 		map.add("number", "789");
+		map.add("id", String.valueOf(idSavedAddress));
 				
-		this.restTemplate.put("/address/update/", map, String.class);
+		this.restTemplate.postForObject("/address/update/", map, String.class);
 		
 		Address address = addressService.getAddressById(idSavedAddress);
-		assertThat(address.getNumber().equals("789"));
-		assertThat(address.getZipcode().equals("02256-080"));
+		assertThat(address.getNumber()).isEqualTo("789");
+		assertThat(address.getZipcode()).isEqualTo("02256-000");
 		
 		this.addressService.deleteAddress(idSavedAddress);		
 	}
