@@ -19,8 +19,8 @@ Consulta de cep feita no servico gratuito `https://viacep.com.br/`
 #### Inserção de endereço(POST):
    `http://localhost:8080/address/save/` <br />  
     body: `zipcode:<< CEP >>` <br />
-          `number: << number >>`<br />
-          `complement:<< complement >>`  (opcional)
+⋅⋅⋅⋅⋅⋅⋅⋅`number: << number >>`<br />
+⋅⋅⋅⋅⋅⋅⋅⋅`complement:<< complement >>`  (opcional)
           
 #### Consulta de cep(GET):
   `http://localhost:8080/cep/<<CEP>>/`
@@ -34,9 +34,9 @@ Consulta de cep feita no servico gratuito `https://viacep.com.br/`
 #### Alteração de endereço(PUT):
    `http://localhost:8080/address/update/<<idAddress>>/` <br />
     body: `id: << ID >>` <br />
-          `zipcode:<< CEP >>` <br />
-          `number: << number >>` <br />
-          `complement:<< complement >>`  (opcional)
+⋅⋅⋅⋅⋅⋅`zipcode:<< CEP >>` <br />
+⋅⋅⋅⋅⋅⋅`number: << number >>` <br />
+⋅⋅⋅⋅⋅⋅`complement:<< complement >>`  (opcional)
           
 ## Testes
 `src/test/java/com/exercicioandrefreire/`
