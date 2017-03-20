@@ -1,4 +1,8 @@
 # Exercicio de consulta de cep e crud de endereço.
+
+## Descrição
+Ambiente para a consulta de CEP e cadastro, alteração, leitura e exclusão de endereços em um banco de dados persistente, via API.
+
 ## Ambiente
 java version "1.8.0_121" <br />  
 Apache Maven 3.3.9 <br />  
